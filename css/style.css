@@ -26,6 +26,8 @@ html {
     scroll-behavior: smooth;
 }
 
+/* style.css の 50行目あたり */
+
 body {
     color: #666666;
     font-size: 14px;
@@ -34,7 +36,13 @@ body {
     font-weight: normal;
     /* overflow-x: hidden; */ 
     
-    border: 15px solid #f9f3a3;
+    /* ↓↓↓ ここから修正 ↓↓↓ */
+
+    /* border: 15px solid #f9f3a3; */ /* ← この行を削除、またはコメントアウト */
+    box-shadow: inset 0 0 0 15px #f9f3a3; /* ← この行を代わりに追加 */
+
+    /* ↑↑↑ ここまで修正 ↑↑↑ */
+    
     /* display: flow-root; */ 
     height: 100%;
 
@@ -1461,7 +1469,7 @@ input.mail_bt.mail_bt::placeholder {
    ------------------------------------------------ */
 
 body.homepage {
-    /* --- ↓ ここから変更・追加 ↓ --- */
+    /* --- ↓ この状態に戻してください ↓ --- */
 
     /* ↓ ここに設定したい背景画像のパスを指定してください */
     /* ※「../」から始めるのを忘れないでください */
@@ -1475,7 +1483,7 @@ body.homepage {
     /* 画像が読み込めない場合に備えて、元の背景色を残しておきます */
     background-color: #ffe090; 
 
-    /* --- ↑ ここまで変更・追加 ↑ --- */
+    /* --- ↑ この状態に戻してください ↑ --- */
 }
 
 
@@ -1631,3 +1639,252 @@ body.homepage {
         text-align: center; 
     }
 }
+
+/* --------------------------------------------------- */
+/* ▼▼▼ 新しいお申し込みフォーム（ここから） ▼▼▼ */
+/* --------------------------------------------------- */
+
+/* * フォーム全体をリセットし、既存CSSの干渉を防ぐ
+ * IDで囲むことで、他の要素に影響を与えません
+ */
+#gemini-new-form-container *,
+#gemini-new-form-container *::before,
+#gemini-new-form-container *::after {
+    box-sizing: border-box; /* 幅の計算を統一 */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, 
+                 "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Hiragino Sans",
+                 Meiryo, Arial, sans-serif; /* モダンなフォントを指定 */
+    -webkit-font-smoothing: antialiased; /* 文字を滑らかに */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* フォームの「カード」本体 */
+#gemini-new-form-container {
+    max-width: 720px;
+    margin: 50px auto; /* ページ中央に配置 */
+    padding: 2.5rem; /* 内側の余白（remは可変単位） */
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e9e9e9;
+    /* 既存のfloatやwidth指定をリセット */
+    width: auto; 
+    float: none;
+    clear: both;
+}
+
+/* フォーム見出しエリア */
+#gemini-new-form-container .form-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+#gemini-new-form-container .form-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #222;
+    margin: 0;
+}
+#gemini-new-form-container .form-subtitle {
+    font-size: 1rem;
+    color: #555;
+    margin: 0.5rem 0 0;
+}
+
+/* 各フォーム項目（ラベル、入力欄のセット） */
+#gemini-new-form-container .form-group {
+    margin-bottom: 1.5rem;
+    
+    /* ↓↓↓ 競合CSS対策：ここから3行を追加 ↓↓↓ */
+    width: 100% !important;   /* 既存CSSの .form-group { width: 50% } などを上書き */
+    float: none !important;    /* 既存CSSの .form-group { float: left } を上書き */
+    clear: both !important;  /* 回り込みを強制解除 */
+    /* ↑↑↑ 競合CSS対策：ここまで ↑↑↑ */
+}
+
+/* ラベル（項目名） */
+#gemini-new-form-container .form-label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+/* 「必須」バッジ */
+#gemini-new-form-container .required-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #d9534f;
+    background-color: #fcf8e3;
+    padding: 3px 6px;
+    border-radius: 4px;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+/* 入力欄（text, tel, email, number, select）共通 */
+#gemini-new-form-container input[type="text"],
+#gemini-new-form-container input[type="tel"],
+#gemini-new-form-container input[type="email"],
+#gemini-new-form-container input[type="number"],
+#gemini-new-form-container select {
+    display: block;
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+#gemini-new-form-container input[type="text"]:focus,
+#gemini-new-form-container input[type="tel"]:focus,
+#gemini-new-form-container input[type="email"]:focus,
+#gemini-new-form-container input[type="number"]:focus,
+#gemini-new-form-container select:focus {
+    border-color: #007bff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* 参加人数（number）の矢印を常に表示 */
+#gemini-new-form-container input[type="number"] {
+    -moz-appearance: textfield;
+}
+#gemini-new-form-container input[type="number"]::-webkit-inner-spin-button,
+#gemini-new-form-container input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: inner-spin-button !important;
+    opacity: 1 !important;
+}
+
+/* チェックボックスのグループ */
+#gemini-new-form-container .checkbox-group label {
+    display: flex; /* チェックボックスとテキストを横並び */
+    align-items: center;
+    font-weight: 500;
+    color: #444;
+    cursor: pointer;
+}
+#gemini-new-form-container .checkbox-group input[type="checkbox"] {
+    width: auto; /* 既存CSSの width:100% を上書き */
+    height: auto;
+    margin-right: 0.75rem;
+    /* チェックボックスを少し大きく見やすくする */
+    transform: scale(1.1); 
+}
+/* お知らせ配信（シンプルな背景なし） */
+#gemini-new-form-container .simple-check {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+}
+/* 同意（目立たせる背景あり） */
+#gemini-new-form-container .wide-check {
+    background-color: #fdfbf4;
+    border: 1px solid #fbeed5;
+    padding: 1rem;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+#gemini-new-form-container .wide-check .required-badge {
+    margin-left: auto; /* 必須バッジを右端に配置 */
+}
+
+/* 利用規約ボックス */
+#gemini-new-form-container .terms-box {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 6px;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    color: #444;
+}
+#gemini-new-form-container .terms-box p {
+    margin: 0 0 1rem 0; /* 既存の p タグの margin: 20px を上書き */
+}
+#gemini-new-form-container .terms-box p:last-child {
+    margin-bottom: 0;
+}
+#gemini-new-form-container .terms-box b {
+    color: #000;
+    font-weight: 600;
+}
+
+/* 動的に切り替わる日時セレクト（常に表示） */
+#gemini-new-form-container .area-options {
+    /* display: none; */ /* ← この行を削除またはコメントアウト */
+    margin-top: 10px;
+}
+
+/* 送信ボタンのグループ */
+#gemini-new-form-container .submit-group {
+    text-align: center;
+    margin-top: 2rem;
+}
+#gemini-new-form-container .submit-btn {
+    padding: 14px 45px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    -webkit-appearance: none; /* iOSの角丸を強制 */
+}
+#gemini-new-form-container .submit-btn:hover {
+    background-color: #0056b3;
+}
+#gemini-new-form-container .submit-btn:active {
+    transform: scale(0.98);
+}
+
+/* * --------------------------------
+ * ▼▼▼ スマートフォン対応 ▼▼▼
+ * (画面幅 767px 以下)
+ * --------------------------------
+ */
+@media (max-width: 767px) {
+    /* カードの余白を減らす */
+    #gemini-new-form-container {
+        margin: 20px auto;
+        padding: 1.5rem; /* 内側余白を少し減らす */
+    }
+
+    /* 見出しを少し小さく */
+    #gemini-new-form-container .form-title {
+        font-size: 1.5rem;
+    }
+    #gemini-new-form-container .form-header {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+    }
+
+    /* 項目間のマージンを減らす */
+    #gemini-new-form-container .form-group {
+        margin-bottom: 1.25rem;
+    }
+
+    /* iOSで入力欄がズームされるのを防ぐため 1rem (16px) を維持 */
+    #gemini-new-form-container input[type="text"],
+    #gemini-new-form-container input[type="tel"],
+    #gemini-new-form-container input[type="email"],
+    #gemini-new-form-container input[type="number"],
+    #gemini-new-form-container select {
+        font-size: 1rem;
+        padding: 12px 14px;
+    }
+}
+
+/* --------------------------------------------------- */
+/* ▲▲▲ 新しいお申し込みフォーム（ここまで） ▲▲▲ */
+/* --------------------------------------------------- */
