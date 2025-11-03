@@ -17,21 +17,30 @@ $newsletter       = isset($_POST['acceptance-newsletter']) && $_POST['acceptance
 $number           = isset($_POST['number']) ? filter_var($_POST['number'], FILTER_VALIDATE_INT, ['options' => ['min_range' => 1, 'max_range' => 5]]) : false;
 $child_grade      = isset($_POST['child-grade']) ? htmlspecialchars($_POST['child-grade'], ENT_QUOTES, 'UTF-8') : '';
 $area             = isset($_POST['area']) ? htmlspecialchars($_POST['area'], ENT_QUOTES, 'UTF-8') : '';
-$datetime_prefs   = isset($_POST['datetime_preference']) && is_array($_POST['datetime_preference']) ? $_POST['datetime_preference'] : [];
+
+// --- ▼▼▼ 修正箇所（ここから） ▼▼▼ ---
+// $datetime_prefs   = isset($_POST['datetime_preference']) && is_array($_POST['datetime_preference']) ? $_POST['datetime_preference'] : []; // ← 元のコード
+// JavasScriptフォームは「配列」ではなく「単一の文字列」で送信するため、文字列(string)として受け取る
+$datetime_pref_string = isset($_POST['datetime_preference']) ? htmlspecialchars(trim($_POST['datetime_preference']), ENT_QUOTES, 'UTF-8') : '';
 $terms_accepted   = isset($_POST['acceptance-terms']) && $_POST['acceptance-terms'] == '1';
 
-// サニタイズ（希望日時配列）
+// サニタイズ（希望日時）
+// バリデーション(emptyチェック)で $datetime_prefs_sanitized を使うため、変数を準備
 $datetime_prefs_sanitized = [];
-foreach ($datetime_prefs as $pref) {
-    $datetime_prefs_sanitized[] = htmlspecialchars($pref, ENT_QUOTES, 'UTF-8');
+if (!empty($datetime_pref_string)) {
+    // 値が空でなければ、バリデーション通過用に配列に値を入れる
+    $datetime_prefs_sanitized[] = $datetime_pref_string;
 }
-$datetime_prefs_string = !empty($datetime_prefs_sanitized) ? implode("\n - ", $datetime_prefs_sanitized) : '未選択';
+// メール本文用の文字列を作成（元の変数名を再利用）
+$datetime_prefs_string = !empty($datetime_pref_string) ? $datetime_pref_string : '未選択';
+// --- ▲▲▲ 修正箇所（ここまで） ▲▲▲ ---
+
 
 // --- バリデーション ---
 $errors = [];
 if (empty($name)) $errors[] = '氏名を入力してください。';
 if (empty($name2)) $errors[] = 'ふりがなを入力してください。';
-if (empty($tel)) $errors[] = 'お電話番号を入力してください。'; // 必須に変更した場合
+if (empty($tel)) $errors[] = 'お電話番号を入力してください。';
 if (empty($email)) {
     $errors[] = 'メールアドレスを入力してください。';
 } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -45,6 +54,7 @@ if (empty($email2)) {
 if ($number === false) $errors[] = '大人の参加人数は1～5の間で入力してください。';
 if (empty($child_grade)) $errors[] = '第一子の学年を選択してください。';
 if (empty($area)) $errors[] = '開催エリアを選択してください。';
+// ↓このバリデーションチェックは、上記の修正によって正しく機能するようになります
 if (empty($datetime_prefs_sanitized)) $errors[] = 'ご希望の参加日時を少なくとも1つ選択してください。';
 if (!$terms_accepted) $errors[] = '個人情報の取り扱いに同意してください。';
 
@@ -116,7 +126,7 @@ EOT;
     // エラー処理（本番環境では詳細なエラーは表示せず、ログに記録する）
     error_log("運営者向けメール送信失敗: {$mail_to_admin->ErrorInfo}"); // エラーログに記録
     echo "メッセージの送信中にエラーが発生しました。しばらくしてからもう一度お試しください。";
-    // exit; // 必要に応じてここで処理を止める
+    // exit; // 必要に応じてここで処理をDめる
 }
 
 // ------------------------------------------
