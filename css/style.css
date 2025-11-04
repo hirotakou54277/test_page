@@ -419,7 +419,7 @@ input.form-control::placeholder {
 .about_taital {
     width: 100%;
     float: left;
-    font-size: 25px;
+    font-size: 20px;
     color: #ffffff;
     padding-top: 50px;
     font-weight: bold;
@@ -1890,3 +1890,4 @@ body.homepage {
 /* --------------------------------------------------- */
 /* ▲▲▲ 新しいお申し込みフォーム（ここまで） ▲▲▲ */
 /* --------------------------------------------------- */
+
