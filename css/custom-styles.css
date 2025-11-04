@@ -1,0 +1,63 @@
+/*
+===============================================
+  css/custom-styles.css の内容
+  (2025/11/04 10:16 最終修正版)
+===============================================
+*/
+
+/* * 【対策1】
+ * フォーム全体が、前の要素の float の影響を受けないようにする
+ */
+#gemini-isolated-form-wrapper {
+    clear: both !important;
+}
+
+/*
+ * 【対策2】
+ * 白いカード(.form-card)が中の要素の高さを
+ * 正しく計算できるようにする (PC/スマホ共通)
+ */
+#gemini-isolated-form-wrapper .form-card {
+    display: flow-root !important; /* 高さを計算させる (最重要) */
+    
+    /* 念のため、float指定を強制解除 */
+    float: none !important; 
+}
+
+
+/* * ===============================================
+ * ▼ 📱【スマホ用の調整】 (画面幅 767px 以下) 
+ * ===============================================
+ */
+@media (max-width: 767px) {
+
+    /* * 【A】フォームの「カード」自体の幅を調整 
+     * (これは前回の内容と同じ)
+     */
+    #gemini-isolated-form-wrapper .form-card {
+        width: auto; 
+        max-width: none;
+        margin: 20px 10px;
+        padding: 20px 15px;
+    }
+    
+    /* * 【B】★【今回の最重要修正】★
+     * フォームの中の各入力項目（氏名、電話番号など）が
+     * float されている可能性を、ここで強制的に上書きします。
+     */
+    #gemini-isolated-form-wrapper .form-group {
+        display: block !important; /* ブロック要素として表示 */
+        width: 100% !important;   /* 幅を100%に */
+        float: none !important;    /* floatを強制解除 */
+        clear: both !important;  /* 回り込みを強制解除 */
+    }
+
+    /* 【C】iOSでの自動ズーム防止 (前回の内容と同じ) */
+    #gemini-isolated-form-wrapper input[type="text"],
+    #gemini-isolated-form-wrapper input[type="tel"],
+    #gemini-isolated-form-wrapper input[type="email"],
+    #gemini-isolated-form-wrapper input[type="number"],
+    #gemini-isolated-form-wrapper select {
+        font-size: 1em; /* 16px */
+    }
+}
