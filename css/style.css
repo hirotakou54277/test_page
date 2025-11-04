@@ -1475,7 +1475,7 @@ body.homepage {
 
     /* ↓ ここに設定したい背景画像のパスを指定してください */
     /* ※「../」から始めるのを忘れないでください */
-    background-image: url('../images/pexels-francesco-ungaro-281260.jpg'); 
+    background-image: url('../images/CRAFTON.png'); 
     
     background-attachment: fixed; /* 背景をビューポートに固定します (最重要) */
     background-position: center center; /* 画像を中央に配置 */
@@ -1890,4 +1890,5 @@ body.homepage {
 /* --------------------------------------------------- */
 /* ▲▲▲ 新しいお申し込みフォーム（ここまで） ▲▲▲ */
 /* --------------------------------------------------- */
+
 
