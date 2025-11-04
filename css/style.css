@@ -24,7 +24,12 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
+
+/* style.css の 50行目あたり */
+
+/* style.css の 50行目あたり */
 
 /* style.css の 50行目あたり */
 
@@ -34,19 +39,16 @@ body {
     font-family: 'Montserrat', 'Zen Kaku Gothic New', sans-serif;
     line-height: 1.80857;
     font-weight: normal;
-    /* overflow-x: hidden; */ 
     
-    /* ↓↓↓ ここから修正 ↓↓↓ */
+    /* ↓↓↓ ここを修正 ↓↓↓ */
 
-    /* border: 15px solid #f9f3a3; */ /* ← この行を削除、またはコメントアウト */
-    box-shadow: inset 0 0 0 15px #f9f3a3; /* ← この行を代わりに追加 */
-
-    /* ↑↑↑ ここまで修正 ↑↑↑ */
+    overflow-x: hidden; 
+    
+    /* border: 15px solid #f9f3a3; */ 
+    box-shadow: inset 0 0 0 15px #f9f3a3; 
     
     /* display: flow-root; */ 
     height: 100%;
-
-    /* ↓ 背景色（#ffe090）だけを残します（もし消していた場合） */
     background-color: #ffe090; 
 }
 
@@ -418,7 +420,7 @@ input.form-control::placeholder {
     width: 100%;
     float: left;
     font-size: 40px;
-    color: #fd7a8e;
+    color: #ffffff;
     padding-top: 50px;
     font-weight: bold;
 }
@@ -654,7 +656,7 @@ input.form-control::placeholder {
     width: 100%;
     float: left;
     font-size: 40px;
-    color: #fd7a8e;
+    color: #fffbfc;
     font-weight: bold;
 }
 
@@ -677,7 +679,7 @@ input.form-control::placeholder {
     width: 100%;
     float: left;
     font-size: 30px;
-    color: #fd7a8e;
+    color: #fffbfc;
     font-weight: 600;
     padding-top: 50px;
 }
@@ -815,7 +817,7 @@ input.form-control::placeholder {
     width: 100%;
     float: left;
     font-size: 40px;
-    color: #fd7a8e;
+    color: #fff7f8;
     font-weight: bold;
     text-align: center;
 }
@@ -1473,7 +1475,7 @@ body.homepage {
 
     /* ↓ ここに設定したい背景画像のパスを指定してください */
     /* ※「../」から始めるのを忘れないでください */
-    background-image: url('../images/pexels-artempodrez-7232658.jpg'); 
+    background-image: url('../images/pexels-francesco-ungaro-281260.jpg'); 
     
     background-attachment: fixed; /* 背景をビューポートに固定します (最重要) */
     background-position: center center; /* 画像を中央に配置 */
@@ -1495,7 +1497,7 @@ body.homepage {
     text-decoration: none; 
     
     /* border-bottom を使って独自の下線を作成する */
-    border-bottom: 4px solid #fd7a8e; /* 太さ4px、色は既存のピンク */
+    border-bottom: 4px solid #fffbfc; /* 太さ4px、色は既存のピンク */
     
     /* テキストと下線の間のすき間を調整 */
     padding-bottom: 5px; 
