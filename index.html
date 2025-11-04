@@ -5,7 +5,13 @@
    <!-- basic -->
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+   <!-- 
+      【修正点】
+      複数の viewport タグを、スマホ対応に最適な1行に統一しました。
+   -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
    <!-- site metas -->
    <title>CRAFTON(仮)</title>
    <meta name="keywords" content="">
@@ -17,6 +23,14 @@
    <link rel="stylesheet" type="text/css" href="css/style.css">
    <!-- Responsive-->
    <link rel="stylesheet" href="css/responsive.css">
+   
+   <!-- 
+      【修正点】
+      私たちが作成したカスタムCSSを、他のCSSの一番最後に読み込みます。
+      これにより、スタイルが上書きされるのを防ぎます。
+   -->
+   <link rel="stylesheet" href="css/custom-styles.css">
+
    <!-- fevicon -->
    <link rel="icon" href="images/fevicon.png" type="image/gif" />
    <!-- fonts -->
@@ -34,6 +48,8 @@
 </head>
 
 <body class="homepage">
+   <div class="page-background-wrapper">
+
       <div class="header_section">
          <div class="container-fluid">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -334,117 +350,107 @@
          </div>
       </div>
 
-      <div id="gemini-new-form-container">
-         <div class="form-header">
-            <h2 class="form-title">お申し込みフォーム</h2>
-            <p class="form-subtitle">必要事項をご記入の上、送信してください。</p>
-         </div>
+      <hr class="wp-block-separator has-text-color has-grey-color has-alpha-channel-opacity has-grey-background-color has-background is-style-wide"/>
+      <h2 class="wp-block-heading has-text-align-center h2-section" id="menu03"><i class="fas fa-envelope"></i></h2>
+      <div class="wp-block-group is-layout-constrained wp-block-group-is-layout-constrained">
+         <section class="wp-block-group is-layout-constrained wp-block-group-is-layout-constrained">
+            <section class="wp-block-group is-style-bottom-margin-6em has-bottom-margin is-layout-constrained wp-block-group-is-layout-constrained">
+               <div class="wp-block-cocoon-blocks-tab-box-1 blank-box bb-tab bb-check block-box check is-style-bottom-margin-0em has-bottom-margin"><div class="bb-label"><span class="fa"></span></div>
+               <p class="has-text-align-left has-cocoon-black-color has-text-color has-link-color wp-elements-91a86093c83aa60c9680c67edb8cbfa9"></p>
+               </div>
+               <p class="is-style-bottom-margin-3em has-bottom-margin"></p>
+            </section>
+         </section>
+      </div>
 
-         <form action="send_mail.php" method="post" id="gemini-application-form">
 
-            <div class="form-group">
-               <label for="your-name" class="form-label">氏名</label>
-               <span class="required-badge">必須</span>
-               <input type="text" name="your-name" id="your-name" placeholder="例：山田 太郎" required>
-            </div>
+      <!-- お申し込みフォーム -->
+      <div id="gemini-isolated-form-wrapper">
+         <div class="form-card">
+            <h2>お申し込みフォーム</h2>
+            <p class="form-description">必要事項をご記入の上、送信してください。</p>
 
-            <div class="form-group">
-               <label for="your-name2" class="form-label">ふりがな</label>
-               <span class="required-badge">必須</span>
-               <input type="text" name="your-name2" id="your-name2" placeholder="例：やまだ たろう" required>
-            </div>
+            <form action="send_mail.php" method="post" id="application-form">
 
-            <div class="form-group">
-               <label for="tel" class="form-label">お電話番号</label>
-               <span class="required-badge">必須</span>
-               <input type="tel" name="tel" id="tel" placeholder="例：090-1234-5678" required>
-            </div>
+               <div class="form-group">
+                  <label for="your-name"><b>氏名</b><span class="required">必須</span></label>
+                  <input size="40" maxlength="400" autocomplete="name" aria-required="true" value="" type="text" name="your-name" id="your-name" required />
+               </div>
 
-            <div class="form-group">
-               <label for="your-email" class="form-label">メールアドレス</label>
-               <span class="required-badge">必須</span>
-               <input type="email" name="your-email" id="your-email" placeholder="例：example@email.com" required>
-            </div>
+               <div class="form-group">
+                  <label for="your-name2"><b>ふりがな</b><span class="required">必須</span></label>
+                  <input size="40" maxlength="400" aria-required="true" value="" type="text" name="your-name2" id="your-name2" required />
+               </div>
 
-            <div class="form-group checkbox-group simple-check">
-               <label for="acceptance-newsletter">
-                  <input type="checkbox" name="acceptance-newsletter" id="acceptance-newsletter" value="1">
-                  <span>送信したメールアドレスをお知らせ配信に登録する</span>
-               </label>
-            </div>
+               <div class="form-group">
+                  <label for="tel"><b>お電話番号</b><span class="required">必須</span></label>
+                  <input size="40" maxlength="400" aria-required="true" value="" type="tel" name="tel" id="tel" required />
+               </div>
 
-            <div class="form-group">
-               <label for="your-email2" class="form-label">メールアドレス確認用</label>
-               <span class="required-badge">必須</span>
-               <input type="email" name="your-email2" id="your-email2" placeholder="もう一度メールアドレスを入力" required>
-            </div>
+               <div class="form-group">
+                  <label for="your-email"><b>メールアドレス</b><span class="required">必須</span></label>
+                  <input size="40" maxlength="400" autocomplete="email" aria-required="true" value="" type="email" name="your-email" id="your-email" required />
+               </div>
 
-            <div class="form-group">
-               <label for="number" class="form-label">大人の参加人数</label>
-               <span class="required-badge">必須</span>
-               <input type="number" name="number" id="number" min="1" max="5" value="1" required>
-            </div>
+               <div class="form-group checkbox-group">
+                  <label>
+                     <input type="checkbox" name="acceptance-newsletter" value="1" style="width: auto; margin-right: 5px;" />
+                     <span>送信したメールアドレスをお知らせ配信に登録する</span>
+                  </label>
+               </div>
 
-            <div class="form-group">
-               <label for="child-grade" class="form-label">長男/長女(第一子)の学年</label>
-               <span class="required-badge">必須</span>
-               <select name="child-grade" id="child-grade" required>
-                  <option value="未就学">未就学</option>
-                  <option value="小学生">小学生</option>
-                  <option value="中学生">中学生</option>
-                  <option value="高校生以上">高校生以上</option>
-               </select>
-            </div>
-            
-            <div class="form-group">
-               <label for="area-select" class="form-label">開催エリア</label>
-               <span class="required-badge">必須</span>
-               <select name="area" id="area-select" required>
-                  <option value="">-- 選択してください --</option>
-                  <option value="都島・旭区エリア">都島・旭区エリア 他の地域からの参加も可!!</option>
-                  <option value="北・福島・西区エリア">北・福島・西区エリア 他の地域からの参加も可!!</option>
-                  <option value="天王寺・阿倍野区エリア">天王寺・阿倍野区エリアs 他の地域からの参加も可!!</option>
-                  <option value="尼崎市 東エリア">尼崎市 東エリア 他の地域からの参加も可!!</option>
-                  <option value="尼崎市 西エリア">尼崎市 西エリア 他の地域からの参加も可!!</option>
-               </select>
-            </div>
+               <div class="form-group">
+                  <label for="your-email2"><b>メールアドレス確認用</b><span class="required">必須</span></label>
+                  <input size="40" maxlength="400" autocomplete="email" aria-required="true" value="" type="email" name="your-email2" id="your-email2" required />
+               </div>
 
-            <div class="form-group">
-               <label class="form-label">ご希望の参加日時（いずれか1つ）</label>
-               <span class="required-badge">必須</span>
-               <p style="font-size: 0.9em; margin: 0 0 10px 0;">（上記で選んだ「開催エリア」と一致する日時を選択してください）</p>
+               <div class="form-group">
+                  <label for="number"><b>大人の参加人数</b><span class="required">必須</span></label>
+                  <input min="1" max="5" aria-required="true" value="1" type="number" name="number" id="number" required />
+               </div>
 
-               <select name="datetime_preference" class="area-options" required>
-                  <option value="">-- ご希望の日時を選択してください --</option>
-                  
-                  <optgroup label="都島・旭区エリア">
+               <div class="form-group">
+                  <label for="child-grade"><b>長男/長女(第一子)の学年</b><span class="required">必須</span></label>
+                  <select aria-required="true" name="child-grade" id="child-grade" required>
+                     <option value="未就学">未就学</option>
+                     <option value="小学生">小学生</option>
+                     <option value="中学生">中学生</option>
+                     <option value="高校生以上">高校生以上</option>
+                  </select>
+               </div>
+
+               <div class="form-group">
+                  <label for="area-select"><b>開催エリア</b><span class="required">必須</span></label>
+                  <select aria-required="true" name="area" required id="area-select">
+                     <option value="">-- 選択してください --</option>
+                     <option value="都島・旭区エリア">都島・旭区エリア 他の地域からの参加も可!!</option>
+                     <option value="北・福島・西区エリア">北・福島・西区エリア 他の地域からの参加も可!!</option>
+                     <option value="天王寺・阿倍野区エリア">天王寺・阿倍野区エリアs 他の地域からの参加も可!!</option>
+                     <option value="尼崎市 東エリア">尼崎市  東エリア 他の地域からの参加も可!!</option>
+                     <option value="尼崎市 西エリア">尼崎市  西エリア 他の地域からの参加も可!!</option>
+                  </select>
+               </div>
+
+               <div class="form-group">
+                  <p class="form-label"><b>ご希望の参加日時</b><span class="required">必須</span></p>
+
+                  <select name="datetime_preference" class="area-options" id="options-area-1">
+                     <option value="">-- ご希望の日時を選択してください --</option>
                      <option value="令和7年10月30日（木）10:00～ 都島区 都島区民センター 会議室４">令和7年10月30日（木）10:00～ 都島区 都島区民センター 会議室４</option>
                      <option value="令和7年11月1日（土）10:00～ 都島区 都島区民センター 会議室４">令和7年11月1日（土）10:00～ 都島区 都島区民センター 会議室４</option>
                      <option value="令和7年10月30日（木）10:00～ 旭区 旭区民センター 集会室２">令和7年10月30日（木）10:00～ 旭区 旭区民センター 集会室２</option>
                      <option value="令和7年11月2日（日）10:00～ 旭区 旭区民センター 集会室２">令和7年11月2日（日）10:00～ 旭区 旭区民センター 集会室２</option>
-                  </optgroup>
-                  
-                  <optgroup label="北・福島・西区エリア">
                      <option value="令和7年10月19日（日）10:00～ 福島区 福島区民センター３０４会議室">令和7年10月19日（日）10:00～ 福島区 福島区民センター３０４会議室</option>
-                  </optgroup>
-                  
-                  <optgroup label="天王寺・阿倍野区エリア">
                      <option value="令和7年10月18日（土）10:00～ 天王寺区 天王寺区民センター 第１会議室">令和7年10月18日（土）10:00～ 天王寺区 天王寺区民センター 第１会議室</option>
                      <option value="令和7年10月22日（水）10:00～ 天王寺区 天王寺区民センター 第１会議室">令和7年10月22日（水）10:00～ 天王寺区 天王寺区民センター 第１会議室</option>
                      <option value="令和7年10月20日（月）10:00～ 阿倍野区 阿倍野区民センター 集会室３">令和7年10月20日（月）10:00～ 阿倍野区 阿倍野区民センター 集会室３</option>
                      <option value="令和7年10月22日（水）10:00～ 阿倍野区 阿倍野区民センター 集会室３">令和7年10月22日（水）10:00～ 阿倍野区 阿倍野区民センター 集会室３</option>
-                  </optgroup>
-                  
-                  <optgroup label="尼崎市 東エリア">
                      <option value="令和7年11月9日（日）10:00～ 園田西生涯学習プラザ 学習室１">令和7年11月9日（日）10:00～ 園田西生涯学習プラザ 学習室１</option>
                      <option value="令和7年11月10日（月）10:00～ 園田西生涯学習プラザ 学習室１">令和7年11月10日（月）10:00～ 園田西生涯学習プラザ 学習室１</option>
                      <option value="令和7年11月9日（日）10:00～ 中央南生涯学習プラザ 小会議室">令和7年11月9日（日）10:00～ 中央南生涯学習プラザ 小会議室</option>
                      <option value="令和7年11月13日（木）10:00～ 中央南生涯学習プラザ 小会議室">令和7年11月13日（木）10:00～ 中央南生涯学習プラザ 小会議室</option>
                      <option value="令和7年11月10日（月）10:00～ 小田南生涯学習プラザ 小会議室１">令和7年11月10日（月）10:00～ 小田南生涯学習プラザ 小会議室１</option>
                      <option value="令和7年11月15日（土）10:00～ 中央北生涯学習プラザ 学習室２">令和7年11月15日（土）10:00～ 中央北生涯学習プラザ 学習室２</option>
-                  </optgroup>
-                  
-                  <optgroup label="尼崎市 西エリア">
                      <option value="令和7年11月16日（日）10:00～ 武庫東生涯学習プラザ 学習室２">令和7年11月16日（日）10:00～ 武庫東生涯学習プラザ 学習室２</option>
                      <option value="令和7年11月23日（日）10:00～ 武庫東生涯学習プラザ 学習室１">令和7年11月23日（日）10:00～ 武庫東生涯学習プラザ 学習室１</option>
                      <option value="令和7年11月26日（水）10:00～ 武庫東生涯学習プラザ 学習室１">令和7年11月26日（水）10:00～ 武庫東生涯学習プラザ 学習室１</option>
@@ -454,15 +460,12 @@
                      <option value="令和7年11月20日（木）10:00～ 大庄南生涯学習プラザ 第２学習室">令和7年11月20日（木）10:00～ 大庄南生涯学習プラザ 第２学習室</option>
                      <option value="令和7年11月22日（土）10:00～ 大庄南生涯学習プラザ 第２学習室">令和7年11月22日（土）10:00～ 大庄南生涯学習プラザ 第２学習室</option>
                      <option value="令和7年11月26日（水）10:00～ 大庄南生涯学習プラザ 第２学習室">令和7年11月26日（水）10:00～ 大庄南生涯学習プラザ 第２学習室</option>
-                  </optgroup>
-               </select>
-            </div>
+                  </select>
+               </div>
 
-            <div class="form-group">
-               <label class="form-label">個人情報の取り扱いについて</label>
-               <div class="terms-box">
+               <div class="form-group terms-box">
                   <p><b>【個人情報の取り扱いについて】</b><br />
-                  ご入力いただいた個人情報（氏名、電話番号、メールアドレス等）は、マネーセミナーの運営・ご連絡・参加確認・今後のご案内のみに使用し、法令に基づく場合を除き、第三者に提供することはありません。 また、取得した個人情報は、CRAFTON(仮)が適切な安全管理のもとで取り扱い、漏洩・紛失・不正利用の防止に努めます。<br />
+                  ご入力いただいた個人情報（氏名、電話番号、メールアドレス等）は、マネーセミナーの運営・ご連絡・参加確認・今後のご案内のみに使用し、法令に基づく場合を除き、第三者に提供することはありません。 また、取得した個人情報は、CRAFTON(仮)が適切な安全管理のもとで取り扱い、漏洩・紛失・不正利用の防止に努めます。<br>
                   個人情報の開示・訂正・削除等をご希望の方、またはご不明点がある場合は、下記までご連絡ください。
                   </p>
                   <p><b>【お問い合わせ先】</b><br />
@@ -470,22 +473,74 @@
                   crafton0004@gmail.com
                   </p>
                </div>
-            </div>
 
-            <div class="form-group checkbox-group wide-check">
-               <label for="acceptance-terms">
-                  <input type="checkbox" name="acceptance-terms" id="acceptance-terms" value="1" required>
-                  <span>上記内容に同意します。</span>
-               </label>
-               <span class="required-badge">必須</span>
-            </div>
+               <div class="form-group acceptance-group">
+                  <label>
+                     <input type="checkbox" name="acceptance-terms" value="1" required aria-required="true" style="width: auto; margin-right: 5px;" />
+                     <b>上記内容に同意します。</b><span class="required">必須</span>
+                  </label>
+               </div>
 
-            <div class="form-group submit-group">
-               <button type="submit" class="submit-btn">送信する</button>
-            </div>
+               <div class="submit-button-wrapper">
+                  <input class="submit-button" type="submit" value="送信する" />
+               </div>
 
-         </form>
+            </form>
+         </div>
       </div>
+
+      <!-- フォームのJavaScript -->
+      <script>
+      document.addEventListener('DOMContentLoaded', function() {
+         
+         const wrapper = document.getElementById('gemini-isolated-form-wrapper');
+         if (!wrapper) {
+            return;
+         }
+         
+         const areaSelect = wrapper.querySelector('#area-select');
+         const allOptionsSelects = wrapper.querySelectorAll('select.area-options');
+         const form = wrapper.querySelector('#application-form');
+
+         if (!areaSelect || !allOptionsSelects.length || !form) {
+            console.error('フォームの必要な要素が見つかりません。IDやクラス名を確認してください。');
+            return;
+         }
+
+         areaSelect.addEventListener('change', function() {
+            
+            allOptionsSelects.forEach(select => {
+                  select.style.display = 'none';
+                  select.value = '';
+                  select.required = false;
+            });
+
+            const selectedValue = this.value; 
+            let targetSelectId = null;
+
+            if (selectedValue === '都島・旭区エリア') {
+                  targetSelectId = 'options-area-1';
+            } else if (selectedValue === '北・福島・西区エリア') {
+                  targetSelectId = 'options-area-2';
+            } else if (selectedValue === '天王寺・阿倍野区エリア') {
+                  targetSelectId = 'options-area-3';
+            } else if (selectedValue === '尼崎市 東エリア') {
+                  targetSelectId = 'options-area-4';
+            } else if (selectedValue === '尼崎市 西エリア') {
+                  targetSelectId = 'options-area-5';
+            }
+
+            if (targetSelectId) {
+                  const targetSelect = wrapper.querySelector('#' + targetSelectId);
+                  if (targetSelect) {
+                     targetSelect.style.display = 'block';
+                     targetSelect.required = true;
+                  }
+            }
+         });
+      });
+      </script>
+      
       <!-- footer section -->
       <div class="footer_section layout_padding">
          <div class="container">
@@ -561,13 +616,15 @@
             <p class="copyright_text">2020 All Rights Reserved. CRAFTON <a href="https://html.design"></a> <a href="http://themewagon.com" target="_blank"></a></p>
          </div>
       </div>
+   </div>
 
-      <script src="js/jquery.min.js"></script>
-      <script src="js/popper.min.js"></script>
-      <script src="js/bootstrap.bundle.min.js"></script>
-      <script src="js/jquery-3.0.0.min.js"></script>
-      <script src="js/plugin.js"></script>
-      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-      <script src="js/custom.js"></script>
+   <script src="js/jquery.min.js"></script>
+   <script src="js/popper.min.js"></script>
+   <script src="js/bootstrap.bundle.min.js"></script>
+   <script src="js/jquery-3.0.0.min.js"></script>
+   <script src="js/plugin.js"></script>
+   <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+   <script src="js/custom.js"></script>
 </body>
+
 </html>
