@@ -420,7 +420,7 @@ input.form-control::placeholder {
     width: 100%;
     float: left;
     font-size: 20px;
-    color: #ff3370;
+    color: #fe477e;
     padding-top: 50px;
     font-weight: bold;
 }
@@ -817,7 +817,7 @@ input.form-control::placeholder {
     width: 100%;
     float: left;
     font-size: 40px;
-    color: #59f586;
+    color: #4bfb7d;
     font-weight: bold;
     text-align: center;
 }
