@@ -420,7 +420,7 @@ input.form-control::placeholder {
     width: 100%;
     float: left;
     font-size: 20px;
-    color: #ff85aa;
+    color: #fe9fbc;
     padding-top: 50px;
     font-weight: bold;
     /* ↓ この行を追加 */
@@ -1895,4 +1895,5 @@ body.homepage {
 /* --------------------------------------------------- */
 /* ▲▲▲ 新しいお申し込みフォーム（ここまで） ▲▲▲ */
 /* --------------------------------------------------- */
+
 
