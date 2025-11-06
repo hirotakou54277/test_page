@@ -420,7 +420,7 @@ input.form-control::placeholder {
     width: 100%;
     float: left;
     font-size: 20px;
-    color: #ffffff;
+    color: #ff3370;
     padding-top: 50px;
     font-weight: bold;
 }
@@ -510,7 +510,7 @@ input.form-control::placeholder {
     width: 100%;
     float: left;
     font-size: 20px;
-    color: #fefbfc; 
+    color: #fefdff; 
     text-align: center;
     margin: 0px;
     font-weight: bold;
@@ -656,7 +656,7 @@ input.form-control::placeholder {
     width: 100%;
     float: left;
     font-size: 40px;
-    color: #fffbfc;
+    color: #205efb;
     font-weight: bold;
 }
 
@@ -817,7 +817,7 @@ input.form-control::placeholder {
     width: 100%;
     float: left;
     font-size: 40px;
-    color: #fff7f8;
+    color: #59f586;
     font-weight: bold;
     text-align: center;
 }
@@ -1890,6 +1890,3 @@ body.homepage {
 /* --------------------------------------------------- */
 /* ▲▲▲ 新しいお申し込みフォーム（ここまで） ▲▲▲ */
 /* --------------------------------------------------- */
-
-
-
