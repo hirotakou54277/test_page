@@ -423,6 +423,8 @@ input.form-control::placeholder {
     color: #fe477e;
     padding-top: 50px;
     font-weight: bold;
+    /* ↓ この行を追加 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
 }
 
 .about_text {
@@ -504,6 +506,7 @@ input.form-control::placeholder {
     color: #363636;
     font-weight: bold;
     text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
 }
 
 .design_text {
@@ -658,6 +661,7 @@ input.form-control::placeholder {
     font-size: 40px;
     color: #205efb;
     font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
 }
 
 .company_text {
@@ -820,6 +824,7 @@ input.form-control::placeholder {
     color: #4bfb7d;
     font-weight: bold;
     text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
 }
 
 .news_section_2 {
