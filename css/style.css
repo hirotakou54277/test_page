@@ -431,7 +431,7 @@ input.form-control::placeholder {
     width: 100%;
     float: left;
     font-size: 20px;
-    color: #fffdfe; 
+    color: #191818; 
     margin: 0px;
     padding-top: 40px;
     font-weight: bold;
@@ -513,7 +513,7 @@ input.form-control::placeholder {
     width: 100%;
     float: left;
     font-size: 20px;
-    color: #fefdff; 
+    color: #191818; 
     text-align: center;
     margin: 0px;
     font-weight: bold;
@@ -669,7 +669,7 @@ input.form-control::placeholder {
     float: left;
     margin: 0px;
     font-size: 20px;
-    color: #f7f4f4; 
+    color: #191818;
     padding-top: 20px;
     font-weight: bold;
 }
@@ -693,7 +693,7 @@ input.form-control::placeholder {
     float: left;
     margin: 0px;
     font-size: 20px;
-    color: #f7f4f4; 
+    color: #191818;
     padding-top: 20px;
     font-weight: bold;
 }
@@ -843,7 +843,7 @@ input.form-control::placeholder {
     width: 100%;
     float: left;
     font-size: 25px;
-    color: #fefdfd;
+    color: #191818;
     font-weight: bold;
 }
 
@@ -851,7 +851,7 @@ input.form-control::placeholder {
     width: 100%;
     float: left;
     font-size: 22px;
-    color: #fcfafa;
+    color: #191818;
     margin: 0px;
     padding-top: 20px;
     font-weight: bold;
@@ -986,7 +986,7 @@ textarea#comment::placeholder {
     width: 100%;
     float: left;
     font-size: 24px;
-    color: #fefefe;
+    color: #0d0d0d;
     text-transform: uppercase;
     padding-bottom: 0px;
 }
@@ -995,7 +995,7 @@ textarea#comment::placeholder {
     width: 85%;
     float: left;
     font-size: 16px;
-    color: #fefefe;
+    color: #0c0c0c;
     margin: 0px;
     padding-top: 20px;
 }
@@ -1013,11 +1013,11 @@ textarea#comment::placeholder {
 
 .footer_menu li {
     font-size: 16px;
-    color: #ffffff;
+    color: #141313;
 }
 
 .footer_menu li a {
-    color: #ffffff;
+    color: #111111;
 }
 
 .footer_menu li a:hover {
@@ -1037,12 +1037,12 @@ textarea#comment::placeholder {
 
 .location_text li {
     font-size: 16px;
-    color: #ffffff;
+    color: #141414;
     padding: 0px;
 }
 
 .location_text li a {
-    color: #ffffff;
+    color: #111111;
 }
 
 .location_text li a:hover {
@@ -1502,7 +1502,7 @@ body.homepage {
     text-decoration: none; 
     
     /* border-bottom を使って独自の下線を作成する */
-    border-bottom: 4px solid #fffbfc; /* 太さ4px、色は既存のピンク */
+    border-bottom: 4px solid #fdfeff; /* 太さ4px、色は既存のピンク */
     
     /* テキストと下線の間のすき間を調整 */
     padding-bottom: 5px; 
@@ -1516,7 +1516,7 @@ body.homepage {
     text-decoration: none; 
     
     /* 太さ4px、色はヘッダーなどで使われている空色 (#2ea0f8) を指定 */
-    border-bottom: 4px solid #2ea0f8; 
+    border-bottom: 4px solid #ffffff; 
     
     /* テキストと下線の間のすき間 */
     padding-bottom: 5px; 
@@ -1895,5 +1895,3 @@ body.homepage {
 /* --------------------------------------------------- */
 /* ▲▲▲ 新しいお申し込みフォーム（ここまで） ▲▲▲ */
 /* --------------------------------------------------- */
-
-
