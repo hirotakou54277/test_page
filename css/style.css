@@ -1434,6 +1434,31 @@ input.mail_bt.mail_bt::placeholder {
     transform: scale(0.98);
 }
 
+/* ==============================================
+   ▼ フォーム機能修正用のCSS (nice-select無効化)
+   ============================================== */
+
+/* このフォームの中だけ、テンプレートのデザイン機能(nice-select)を無効化します */
+#gemini-isolated-form-wrapper .nice-select {
+    display: none !important; /* 偽のセレクトボックスを消す */
+}
+
+/* 本物のセレクトボックスを強制的に表示させます */
+#gemini-isolated-form-wrapper select {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 12px !important;
+    background-color: #fff !important;
+    background-image: none !important; /* 不要な背景画像を消す */
+    opacity: 1 !important;
+    visibility: visible !important;
+    appearance: menulist !important; /* ブラウザ標準の矢印を出す */
+    -webkit-appearance: menulist !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+}
+
 /* * ===============================================
     * * 📱【ここからがスマホ表示の型崩れ修正】📱
     * 画面幅が 600px 以下のための調整
@@ -1895,3 +1920,4 @@ body.homepage {
 /* --------------------------------------------------- */
 /* ▲▲▲ 新しいお申し込みフォーム（ここまで） ▲▲▲ */
 /* --------------------------------------------------- */
+
